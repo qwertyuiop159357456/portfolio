@@ -374,4 +374,124 @@
         <div class="project-name">WARMHOLE</div>
         <p class="project-desc">Full business website for a local IoT & phone repair shop in Madurai. Futuristic neon aesthetic with animated elements, service showcase, and embedded Google Form booking.</p>
         <div class="project-tags">
-          <span class="tag">HTML</span><span class="tag">CSS</sp
+          <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Google Forms</span>
+        </div>
+        <a href="#" class="project-link">View Project →</a>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-num">PROJECT — 002</div>
+        <div class="project-name">PORTFOLIO SITE</div>
+        <p class="project-desc">This very website — a personal portfolio built with pure HTML/CSS/JS. Dark industrial aesthetic, custom cursor, scroll animations, and fully responsive layout.</p>
+        <div class="project-tags">
+          <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+        </div>
+        <a href="#" class="project-link">You're Here →</a>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-num">PROJECT — 003</div>
+        <div class="project-name">YOUR PROJECT</div>
+        <p class="project-desc">Have an idea? I'd love to build it. Whether it's a landing page, business site, or something creative — let's make it real.</p>
+        <div class="project-tags">
+          <span class="tag">Web Dev</span><span class="tag">UI Design</span><span class="tag">Your Idea</span>
+        </div>
+        <a href="#contact" class="project-link">Let's Talk →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="contact-text reveal">
+        <h2>LET'S<br><span>BUILD</span><br>SOMETHING.</h2>
+        <p>Got a project in mind? Need a website for your business? I'm open to freelance work, collabs, or just a good conversation about tech.</p>
+        <a href="https://www.linkedin.com/in/ajaymanikandan-in" target="_blank" class="btn-primary">Connect on LinkedIn ↗</a>
+      </div>
+      <div class="contact-links reveal">
+        <a href="https://www.linkedin.com/in/ajaymanikandan-in" target="_blank" class="contact-link">
+          <div class="contact-link-left">
+            <span class="contact-link-label">LinkedIn</span>
+            <span class="contact-link-value">ajaymanikandan-in</span>
+          </div>
+          <span class="contact-link-arrow">↗</span>
+        </a>
+        <div class="contact-link" style="cursor:default;">
+          <div class="contact-link-left">
+            <span class="contact-link-label">Hometown</span>
+            <span class="contact-link-value">Tenkasi, Tamil Nadu 🇮🇳</span>
+          </div>
+          <span class="contact-link-arrow">📍</span>
+        </div>
+        <div class="contact-link" style="cursor:default;">
+          <div class="contact-link-left">
+            <span class="contact-link-label">University</span>
+            <span class="contact-link-value">Kalasalingam University</span>
+          </div>
+          <span class="contact-link-arrow">🎓</span>
+        </div>
+        <div class="contact-link" style="cursor:default;">
+          <div class="contact-link-left">
+            <span class="contact-link-label">Status</span>
+            <span class="contact-link-value">Open to Freelance Work ✅</span>
+          </div>
+          <span class="contact-link-arrow">→</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="logo">AM</div>
+    <p>© 2025 AJAY MANIKANDAN — TENKASI, TN</p>
+    <p>BUILT WITH HTML · CSS · JS</p>
+  </footer>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx - 5 + 'px';
+      cursor.style.top = my - 5 + 'px';
+    });
+
+    function animateRing() {
+      rx += (mx - rx - 18) * 0.12;
+      ry += (my - ry - 18) * 0.12;
+      ring.style.left = rx + 'px';
+      ring.style.top = ry + 'px';
+      requestAnimationFrame(animateRing);
+    }
+    animateRing();
+
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'scale(2.5)';
+        ring.style.transform = 'scale(1.5)';
+        ring.style.opacity = '0.8';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.style.transform = 'scale(1)';
+        ring.style.transform = 'scale(1)';
+        ring.style.opacity = '0.5';
+      });
+    });
+
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
